@@ -1,0 +1,57 @@
+#!/bin/bash
+if [ $1 == "-s" ]; then 
+sudo _srm_37_ /var/run/unbound.pid 
+sudo rc-service dnsmasq stop
+sudo rc-service dnsmasq start
+sudo killall -HUP dnsmasq 
+sudo rc-service unbound start 
+sudo unbound-control flush_zone . 
+sudo rc-service unbound restart 
+sudo rc-service nscd stop
+sudo rc-service nscd start   
+sudo free && sync && echo /proc/sys/vm/drop_cache && free 
+sudo swapoff -a && swapon -a 
+sudo history -c 
+sudo xsel -bc
+sudo sempty /tmp
+sudo sempty ~/.cache  
+echo "goodbye see you soon !!"
+sudo shutdown -h -P 0 
+
+elif [ $1 == "-f" ]; then 
+sudo _srm_37 /var/run/unbound.pid
+sudo rc-service dnsmasq stop
+sudo rc-service dnsmasq start
+sudo killall -HUP dnsmasq 
+sudo rc-service unbound start
+sudo unbound-control flush_zone .
+sudo rc-service unbound restart
+sudo rc-service nscd stop
+sudo rc-service nscd start   
+sudo free && sync && echo /proc/sys/vm/drop_cache && free 
+sudo swapoff -a && swapon -a 
+sudo history -c 
+sudo xsel -bc
+sudo sempty /tmp
+echo "goodbye see you soon !!"
+sudo shutdown -h -P 0
+
+elif [ $1 == "-r" ]; then 
+sudo _srm_37_ /var/run/unbound.pid
+sudo rc-service dnsmasq stop
+sudo rc-service dnsmasq start
+sudo killall -HUP dnsmasq 
+sudo rc-service unbound start
+sudo unbound-control flush_zone .
+sudo rc-service unbound restart
+sudo rc-service nscd stop
+sudo rc-service nscd start   
+sudo free && sync && echo /proc/sys/vm/drop_cache && free 
+sudo swapoff -a && swapon -a 
+sudo history -c 
+sudo xsel -bc
+sudo sempty /tmp
+echo "goodbye see you soon !!"
+sudo shutdown -r -h -P 0 
+fi    
+

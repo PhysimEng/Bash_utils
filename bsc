@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ ! -d $2 ]; then 
+	echo "Directory not found"
+	exit 1
+fi
+
+if [ -f $1 ] || [ -d $1 ]; then
+	if [ -d $2 ]; then
+		scp  $1 $2
+		_srm_37 $1 
+		echo "scp secured"	
+	fi 	
+fi 
+ 

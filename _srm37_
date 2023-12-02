@@ -1,0 +1,16 @@
+#!/bin/bash
+
+iterations=37
+
+target="$1"
+
+if [ -z "$target" ]; then 
+	echo "Usage: $0 <file or directory>"
+	exit 1
+fi 
+
+for((i=1; i<=$iterations; i++)); do 
+	srm -r -v -d -f "$target"
+done
+
+echo "Secure erasure completed $iterations times."

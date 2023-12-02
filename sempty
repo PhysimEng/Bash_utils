@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for item in $1; do
+	_srm37_ $item 
+done 
